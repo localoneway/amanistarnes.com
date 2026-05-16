@@ -88,45 +88,86 @@ a:hover {
 }
 
 .splash {
-  display: grid;
-  grid-template-columns: 60fr 40fr;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem 4rem;
   position: relative;
+  gap: 3rem;
+}
+
+.splash-top {
+  text-align: center;
+  z-index: 1;
+}
+
+.splash-name {
+  font-family: "adobe-caslon-pro", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(3rem, 6.5vw, 6.5rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--void);
+  white-space: nowrap;
+  cursor: default;
+  user-select: none;
+}
+
+.splash-name span {
+  display: inline;
+}
+
+.splash-name:hover .name-first {
+  color: var(--hot);
+  transition: color 0.08s;
+}
+
+.splash-roles {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.6rem;
+  font-family: "adobe-garamond-pro", serif;
+  font-style: normal;
+}
+
+.splash-center {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .splash-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
+  position: relative;
+  /* width: clamp(260px, 28vw, 420px); */
+  width: 44%;
   overflow: hidden;
   cursor: pointer;
 }
 
 .splash-img img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top left;
+  height: auto;
   display: block;
   filter: grayscale(100%) contrast(105%);
   transition: filter 0.55s ease, transform 0.6s ease;
-  transform: perspective(1500px) rotateY(10deg);
 }
 
 .splash-img:hover img {
   filter: grayscale(0%) contrast(108%);
-  transform: perspective(3000px) rotateY(5deg);
-  transition: transform 1s ease 0s;
-
+  transform: scale(1.03);
 }
 
 .splash-img::after {
   content: "";
   position: absolute;
   inset: 0;
-  /* box-shadow: inset 0 0 140px rgba(10, 10, 10, 0.75); */
+  /* box-shadow: inset 0 0 120px rgba(10, 10, 10, 0.6); */
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.45s ease;
@@ -139,120 +180,61 @@ a:hover {
 
 .splash-about-label {
   position: absolute;
-  bottom: 3.5rem;
-  left: 3.5rem;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
   font-family: "adobe-caslon-pro", serif;
   font-style: italic;
-  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-size: clamp(1.4rem, 2vw, 2.2rem);
   color: var(--cream);
   text-decoration: none;
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.35s ease 0.1s, transform 0.4s ease 0.1s;
+  opacity: 1;
+  transition: opacity 0.35s ease;
+  white-space: nowrap;
   letter-spacing: 0.02em;
 }
 
 .splash-img:hover .splash-about-label {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.splash-text {
-  grid-column: 2;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 4rem 3rem;
-  /* background: var(--void); */
-  /* border-left: 1px solid var(--mid); */
-  min-height: 100vh;
-}
-
-.splash-name {
-  font-family: "adobe-caslon-pro", serif;
-  font-weight: 400;
-  font-style: italic;
-  font-size: clamp(5rem, 9vw, 9rem);
-  line-height: 0.87;
-  letter-spacing: 0.01em;
   color: var(--void);
-  margin-bottom: 1.5rem;
-  cursor: default;
-  user-select: none;
 }
 
-.splash-name span {
-  display: block;
+/* ─── ARC NAV ──────────────────────────────────────────────── */
+.splash-nav-arc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  --arc-r: clamp(240px, 26vw, 400px);
 }
 
-.splash-name:hover .name-first {
-  color: var(--hot);
-  transition: color 0.08s;
-}
-
-.splash-name:hover .name-last {
-  /* color: var(--main); */
-  transition: color 0.08s 0.06s;
-}
-
-.splash-roles {
-  font-size: 2rem;
-  /* letter-spacing: 0.35em; */
-  text-transform: capitalize;
-  color: var(--hot);
-  margin-bottom: 4rem;
+.arc-item {
+  position: absolute;
   font-family: "adobe-garamond-pro", serif;
   font-weight: 400;
   font-style: italic;
-}
-
-.splash-divider {
-  width: 2.5rem;
-  height: 1px;
-  background: var(--mid);
-  margin-bottom: 2.5rem;
-}
-
-.splash-nav {
-  list-style: none;
-}
-
-.splash-nav li+li {
-  margin-top: 0.1rem;
-}
-
-.splash-nav a {
-  font-family: "adobe-garamond-pro", serif;
-  font-weight: 400;
-  font-style: italic;
-  font-size: 64px;
-  /* letter-spacing: 0.10em; */
+  font-size: clamp(1.4rem, 2vw, 2.2rem);
   color: var(--void);
   text-decoration: none;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  transition: color 0.1s, letter-spacing 0.15s;
-  line-height: 1.05;
+  white-space: nowrap;
+  transition: color 0.15s;
 }
 
-.splash-nav .nav-arrow {
-  font-size: 0.4em;
+.arc-item:hover {
   color: var(--hot);
-  transition: transform 0.15s, color 0.1s;
 }
 
-.splash-nav a:hover {
-  color: var(--hot);
-  letter-spacing: 0.09em;
+.arc-1 {
+  transform: rotate(210deg) translateX(var(--arc-r)) rotate(-210deg) translate(-50%, -50%);
 }
 
-.splash-nav a:hover .nav-arrow {
-  transform: translateX(6px);
-  color: var(--apricot);
+.arc-2 {
+  transform: rotate(265deg) translateX(var(--arc-r)) rotate(-265deg) translate(-50%, -50%);
+}
+
+.arc-3 {
+  transform: rotate(320deg) translateX(var(--arc-r)) rotate(-320deg) translate(-50%, -50%);
 }
 
 /* ─── SITE HEADER ─────────────────────────────────────────── */
