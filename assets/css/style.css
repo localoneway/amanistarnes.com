@@ -160,8 +160,20 @@ a:hover {
   pointer-events: none;
 }
 
+/* Background + color shifts on hover */
+
 .splash:has(.splash-img:hover, .splash-dramaturgy:hover) .splash-bg {
   opacity: 1;
+}
+
+.splash:has(.splash-img:hover, .splash-dramaturgy:hover) .arc-item,
+.splash:has(.splash-img:hover, .splash-dramaturgy:hover) .splash-dramaturgy {
+  color: var(--cream);
+}
+
+.splash:has(.splash-img:hover, .splash-dramaturgy:hover) .arc-item:hover,
+.splash:has(.splash-img:hover, .splash-dramaturgy:hover) .splash-dramaturgy:hover {
+  color: var(--hot);
 }
 
 .splash-img {
