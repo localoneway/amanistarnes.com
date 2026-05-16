@@ -142,6 +142,23 @@ a:hover {
   justify-content: center;
 }
 
+.splash-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.55s ease;
+  pointer-events: none;
+}
+
+.splash:hover .splash-bg {
+  opacity: 1;
+}
+
 .splash-img {
   position: relative;
   /* width: clamp(260px, 28vw, 420px); */
