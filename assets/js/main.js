@@ -68,8 +68,12 @@
   function next() { current = (current + 1) % images.length; show(); }
 
   document.addEventListener('click', function (e) {
-    const img = e.target.closest('.img-row img');
+    const img = e.target.closest('.img-row img, .img-thumb');
     if (!img) return;
+    if (img.matches('.img-thumb')) {
+      open([img], 0);
+      return;
+    }
     const row = img.closest('.img-row');
     const imgs = Array.from(row.querySelectorAll('img'));
     open(imgs, imgs.indexOf(img));

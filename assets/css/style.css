@@ -573,6 +573,21 @@ a:hover {
 
 /* ─── IMAGES ──────────────────────────────────────────────── */
 
+.img-thumb {
+  display: block;
+  /* max-width: 320px; */
+  width: 100%;
+  margin-top: 1.5rem;
+  cursor: zoom-in;
+  filter: grayscale(10%) contrast(105%);
+  transition: filter 0.3s ease, transform 0.25s ease;
+}
+
+.img-thumb:hover {
+  filter: grayscale(0%) contrast(108%);
+  transform: scale(1.012);
+}
+
 .img-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
