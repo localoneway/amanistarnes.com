@@ -7,7 +7,7 @@
   --void: #0a0a0a;
   --cream: #ede9df;
   --apricot: #e3a155;
-  --hot: #ab443f;
+  --hot: #df0427;
   --zap: #b8ff00;
   --dim: #1a1a1a;
   --mid: #2a2a2a;
@@ -157,7 +157,7 @@ a:hover {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center bottom;
   z-index: 0;
   opacity: 0;
@@ -176,7 +176,7 @@ a:hover {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center bottom;
   z-index: 0;
   pointer-events: none;
@@ -185,6 +185,7 @@ a:hover {
   will-change: opacity;
   transform: translateZ(0);
   backface-visibility: hidden;
+  overflow: visible;
 }
 
 .bg-fill {
@@ -207,22 +208,22 @@ a:hover {
 
 /* Background + color shifts on hover */
 
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-bg,
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover) .bg-fill {
+.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .splash-bg,
+.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .bg-fill {
   opacity: 1;
 }
 
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-bg-onload {
+.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .splash-bg-onload {
   opacity: 0;
 }
 
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover) .arc-item,
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-dramaturgy {
+.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .arc-item,
+.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .splash-dramaturgy {
   color: var(--cream);
 }
 
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover) .arc-item:hover,
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-dramaturgy:hover {
+.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .arc-item:hover,
+.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .splash-dramaturgy:hover {
   color: var(--hot);
 }
 
@@ -239,7 +240,7 @@ a:hover {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 33.333%;
+  width: 33.3333%;
   pointer-events: auto;
   cursor: pointer;
 }
@@ -254,7 +255,7 @@ a:hover {
   z-index: 1;
 }
 
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-img::after {
+.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .splash-img::after {
   opacity: 1;
 }
 
@@ -267,7 +268,7 @@ a:hover {
   pointer-events: auto;
   font-family: "adobe-caslon-pro", serif;
   font-style: italic;
-  font-size: clamp(1.4rem, 2vw, 2.2rem);
+  font-size: clamp(2rem, 3vw, 4rem);
   color: var(--cream);
   text-decoration: none;
   opacity: 1;
@@ -275,7 +276,8 @@ a:hover {
   letter-spacing: 0.02em;
 }
 
-.splash:has(.splash-img-wrap:hover, .arc-item:hover) .splash-about-label {
+.splash-about-label:hover,
+.splash:has(.splash-img-wrap:hover) .splash-about-label {
   color: var(--void);
 }
 
@@ -296,7 +298,7 @@ a:hover {
   font-family: "adobe-garamond-pro", serif;
   font-weight: 400;
   font-style: italic;
-  font-size: clamp(1.4rem, 2vw, 2.2rem);
+  font-size: clamp(2rem, 3vw, 4rem);
   color: var(--void);
   text-decoration: none;
   white-space: nowrap;
@@ -309,12 +311,49 @@ a:hover {
   pointer-events: auto;
 }
 
+.arc-item::after,
+.splash-dramaturgy::after {
+  background: var(--hot);
+}
+
+.splash-about-label::after {
+  background: var(--void);
+}
+
+.arc-item::after,
+.splash-dramaturgy::after,
+.splash-about-label::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: -3px;
+  right: -3px;
+  height: 5px;
+  clip-path: polygon(4% 0%, 100% 0%, 96% 100%, 0% 100%);
+  transform: rotate(-2deg) scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.22s ease;
+}
+
+
+
 .arc-item:hover {
   color: var(--hot);
 }
 
+.arc-item:hover::after,
+.splash-dramaturgy:hover::after,
+.splash-about-label:hover::after,
+.splash:has(.splash-img-wrap:hover) .splash-about-label::after {
+  transform: rotate(-2deg) scaleX(1);
+}
+
 .arc-1 {
   --n: 0;
+}
+
+.arc-2 {
+  --n: 1;
 }
 
 .arc-3 {
@@ -325,7 +364,7 @@ a:hover {
   font-family: "adobe-garamond-pro", serif;
   font-weight: 400;
   font-style: italic;
-  font-size: clamp(1.4rem, 2vw, 2.2rem);
+  font-size: clamp(2rem, 3vw, 4rem);
   color: var(--void);
   text-decoration: none;
   white-space: nowrap;
@@ -383,14 +422,32 @@ a:hover {
   text-decoration: none;
   color: var(--muted);
   padding-bottom: 2px;
-  border-bottom: 1px solid transparent;
-  transition: all 0.12s;
+  position: relative;
+  transition: color 0.12s;
+}
+
+.header-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  height: 4px;
+  background: var(--hot);
+  clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+  transform: rotate(-2deg) scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.22s ease;
 }
 
 .header-nav a:hover,
 .header-nav a[aria-current] {
   color: var(--cream);
-  border-bottom-color: var(--hot);
+}
+
+.header-nav a:hover::after,
+.header-nav a[aria-current]::after {
+  transform: rotate(-2deg) scaleX(1);
 }
 
 /* ─── PAGE LAYOUT ─────────────────────────────────────────── */
@@ -403,7 +460,7 @@ a:hover {
 }
 
 .page-eyebrow {
-  font-size: 0.7rem;
+  font-size: 1rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--hot);
@@ -422,7 +479,7 @@ a:hover {
   margin-top: 1.5rem;
   /* max-width: 55ch; */
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 1.5rem;
 }
 
 .page-body {
