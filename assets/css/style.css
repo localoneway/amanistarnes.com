@@ -133,7 +133,7 @@ a:hover {
 }
 
 .splash-roles {
-  font-size: 0.75rem;
+  font-size: 0.90rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--muted);
@@ -208,22 +208,22 @@ a:hover {
 
 /* Background + color shifts on hover */
 
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .splash-bg,
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .bg-fill {
+.splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-bg,
+.splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .bg-fill {
   opacity: 1;
 }
 
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .splash-bg-onload {
+.splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-bg-onload {
   opacity: 0;
 }
 
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .arc-item,
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .splash-dramaturgy {
+.splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .arc-item,
+.splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-dramaturgy {
   color: var(--cream);
 }
 
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .arc-item:hover,
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .splash-dramaturgy:hover {
+.splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .arc-item:hover,
+.splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-dramaturgy:hover {
   color: var(--hot);
 }
 
@@ -240,9 +240,22 @@ a:hover {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 33.3333%;
+  width: 25%;
   pointer-events: auto;
   cursor: pointer;
+  z-index: 2;
+}
+
+.img-hover-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62%;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .splash-img::after {
@@ -255,7 +268,7 @@ a:hover {
   z-index: 1;
 }
 
-.splash:has(.splash-img-wrap:hover, .arc-item:hover, .splash-dramaturgy:hover, .splash-about-label:hover) .splash-img::after {
+.splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-img::after {
   opacity: 1;
 }
 
@@ -284,7 +297,7 @@ a:hover {
 /* ─── ARC NAV ──────────────────────────────────────────────── */
 .splash-nav-arc {
   position: absolute;
-  top: 62%;
+  top: 60%;
   left: 50%;
   width: 0;
   height: 0;
@@ -354,6 +367,7 @@ a:hover {
 
 .arc-2 {
   --n: 1;
+  z-index: 999;
 }
 
 .arc-3 {
