@@ -423,7 +423,7 @@ a:hover {
 
 .page-intro {
   margin-top: 1.5rem;
-  max-width: 55ch;
+  /* max-width: 55ch; */
   color: var(--muted);
   font-size: 0.95rem;
 }
