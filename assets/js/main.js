@@ -1,7 +1,6 @@
 // Staggered splash intro
 (function () {
   const els = [
-    document.querySelector('.bg-fill'),
     document.querySelector('.splash-bg-onload'),
   ];
 
