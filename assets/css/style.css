@@ -314,7 +314,8 @@ a:hover {
     pointer-events: none;
   }
 
-  .splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-about-label {
+  .splash:has(.splash-img-wrap:hover) .splash-about-label,
+  .splash-about-label:hover {
     opacity: 1;
     pointer-events: auto;
   }
