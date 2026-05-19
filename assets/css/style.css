@@ -11,7 +11,7 @@
   --zap: #b8ff00;
   --dim: #1a1a1a;
   --mid: #2a2a2a;
-  --muted: #7a7068;
+  --muted: #555555;
   --main: #7c380d;
 }
 
@@ -39,11 +39,20 @@ body {
 }
 
 .title-font,
-.page-title,
+.page-title {
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  font-size: clamp(2.5rem, 4.5vw, 2.5rem);
+}
+
 .section-title {
   font-family: "adobe-garamond-pro", serif;
   font-weight: 400;
   font-style: normal;
+  text-align: left;
+  font-size: clamp(2.5rem, 4.5vw, 2.5rem);
 }
 
 ::selection {
@@ -127,10 +136,7 @@ a:hover {
   display: inline;
 }
 
-.splash-name:hover .name-first {
-  color: var(--hot);
-  /* transition: color 0.08s; */
-}
+
 
 .splash-roles {
   font-size: 0.90rem;
@@ -470,10 +476,11 @@ a:hover {
   padding: 5rem 3rem 3rem;
   max-width: 1000px;
   margin: 0 auto;
-  border-bottom: 1px solid var(--mid);
+  border-bottom: 1px dotted var(--mid);
 }
 
 .page-eyebrow {
+  text-align: center;
   font-size: 1rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -499,13 +506,13 @@ a:hover {
 .page-body {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 3rem 8rem;
+  /* padding: 0 3rem 8rem; */
 }
 
 .section {
-  padding-top: 4rem;
-  margin-top: 4rem;
-  border-top: 1px solid var(--mid);
+  padding-top: 3rem;
+  margin-top: 1rem;
+  border-top: 1px dotted var(--mid);
 }
 
 .section:first-child {
@@ -513,8 +520,12 @@ a:hover {
   margin-top: 0rem;
 }
 
+.section:last-child {
+  margin-bottom: 4rem;
+}
+
 .section-eyebrow {
-  font-size: 0.68rem;
+  font-size: 1rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--hot);
@@ -531,7 +542,7 @@ a:hover {
 } */
 
 .section-body {
-  max-width: 60ch;
+  max-width: 100ch;
 }
 
 .section-body p+p {
@@ -597,28 +608,62 @@ a:hover {
 /* Buttons */
 .btn {
   display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.55rem 1.3rem;
-  border: 1px solid var(--mid);
-  font-family: 'Courier Prime', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-size: 1rem;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--hot);
+  color: var(--muted);
+  padding-bottom: 2px;
+  position: relative;
+  transition: color 0.12s;
   transition: all 0.15s;
+  border-color: var(--hot);
+  color: var(--void);
+  padding-top: 1em;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    background-color 0.18s ease;
 }
 
 .btn:hover {
-  background: var(--hot);
   border-color: var(--hot);
   color: var(--void);
+
+  transform: translateX(2px);
+}
+
+.btn-zap {
+  position: relative;
+  color: var(--hot);
+  border-color: transparent;
+}
+
+
+
+.btn-zap::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: -3px;
+  right: -3px;
+  height: 3px;
+  background: var(--hot);
+  clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+  transition: background 0.2s ease;
 }
 
 .btn-zap:hover {
-  background: var(--zap);
-  border-color: var(--zap);
-  color: var(--void);
+  color: var(--hot);
+}
+
+.btn-zap:hover::before {
+  transform: rotate(-2deg);
+}
+
+.btn-zap:hover::after {
+  background: var(--hot);
 }
 
 .btn+.btn {
@@ -755,7 +800,7 @@ a:hover {
 
 .side-poster {
   /* float: right; */
-  margin: 0 0 2rem 2.5rem;
+  margin: 1rem 0 2rem 2.5rem;
   max-width: 100%;
 }
 
@@ -792,17 +837,26 @@ a:hover {
 /* ─── RESEARCH ────────────────────────────────────────────── */
 
 .pub-item {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--mid);
-  max-width: 65ch;
+  padding: 1.5rem 0 3rem 2rem;
+  max-width: 55ch;
+  position: relative;
 }
 
-.pub-item:last-child {
-  border-bottom: none;
+.pub-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+  right: 0;
+  border-bottom: 1px dashed var(--mid);
+}
+
+.pub-item:last-child::after {
+  display: none;
 }
 
 .pub-tag {
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--hot);
@@ -824,17 +878,20 @@ a:hover {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 3rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
   align-items: start;
-  /* margin-top: 3rem; */
+}
+
+.about-headshot {
+  border: 1px dotted var(--mid);
+  padding: 10px;
 }
 
 .about-headshot img {
   width: 100%;
   display: block;
   filter: grayscale(15%) contrast(108%);
-  border: 1px solid var(--mid);
 }
 
 .about-text p+p {
@@ -844,7 +901,7 @@ a:hover {
 .placeholder-note {
   color: var(--muted);
   font-style: italic;
-  font-size: 0.9em;
+  font-size: 1.5rem;
 }
 
 /* ─── FOOTER ──────────────────────────────────────────────── */
@@ -919,6 +976,8 @@ a:hover {
 
   .about-headshot {
     max-width: 200px;
+    border: 2px solid var(--void);
+    padding: 10px;
   }
 
   .side-poster {
