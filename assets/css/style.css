@@ -139,12 +139,13 @@ a:hover {
 
 
 .splash-roles {
-  font-size: 0.90rem;
+  font-size: 1.2rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--muted);
   margin-top: 0.6rem;
   font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -224,8 +225,13 @@ a:hover {
 }
 
 .splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .arc-item,
-.splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-dramaturgy {
+.splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-dramaturgy,
+.splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-name {
   color: var(--cream);
+}
+
+.splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-roles {
+  color: var(--apricot);
 }
 
 .splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .arc-item:hover,
@@ -913,15 +919,18 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  background-color: var(--void);
   gap: 1rem;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
-  color: #4a4540;
+  color: var(--cream);
+  text-transform: uppercase;
 }
 
 .site-footer a {
-  color: #4a4540;
+  color: var(--cream);
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 .site-footer a:hover {
