@@ -978,10 +978,10 @@ a:hover {
     object-fit: cover;
   }
 
-  /* .splash {
-    padding: 2.5rem 1.5rem 0;
-    gap: 1.5rem;
-  } */
+  .splash {
+    padding: 2.5rem 0 0 0;
+    /* gap: 1.5rem; */
+  }
 
   .splash-img-wrap img {
     max-width: 65vw;
@@ -1048,10 +1048,10 @@ a:hover {
 }
 
 @media (max-width: 480px) {
-  /* .splash {
-    padding: 2rem 1rem 0;
+  .splash {
+    padding: 2rem 0 0;
     gap: 1rem;
-  } */
+  }
 
   .splash-name {
     font-size: clamp(2rem, 9vw, 3rem);
@@ -1105,10 +1105,10 @@ a:hover {
 }
 
 @media (max-height: 700px) {
-  /* .splash {
+  .splash {
     padding-top: 1.5rem;
     gap: 1rem;
-  } */
+  }
 
   .splash-name {
     font-size: clamp(1.8rem, 5vw, 3.5rem);
