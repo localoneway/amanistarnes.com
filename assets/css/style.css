@@ -971,6 +971,26 @@ a:hover {
   }
 }
 
+@media (max-width: 1024px) {
+
+  .splash-bg-onload,
+  .splash-bg {
+    object-fit: cover;
+  }
+
+  .splash-nav-arc {
+    top: 25%;
+  }
+
+  .section {
+    padding: 3rem;
+  }
+
+  .section:first-child {
+    padding: 3rem;
+  }
+}
+
 @media (max-width: 820px) {
 
   .splash-bg-onload,
