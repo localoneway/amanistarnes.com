@@ -305,6 +305,19 @@ a:hover {
   opacity: 1;
   white-space: nowrap;
   letter-spacing: 0.02em;
+  transition: color 0.15s, opacity 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .splash-about-label {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .splash:has(.img-hover-container:hover, .arc-item:hover, .splash-dramaturgy:hover) .splash-about-label {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 .splash-about-label:hover,
@@ -969,6 +982,7 @@ a:hover {
   .splash-roles {
     color: var(--apricot);
   }
+
 }
 
 @media (max-width: 1024px) {
@@ -1159,6 +1173,14 @@ a:hover {
   .site-footer {
     padding: 1.5rem 1rem;
   }
+
+  .splash-roles {
+    font-size: .6rem;
+  }
+
+  .arc-item {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-height: 700px) {
@@ -1166,6 +1188,7 @@ a:hover {
     padding-top: 1.5rem;
     gap: 1rem;
   }
+
 
   .splash-name {
     font-size: clamp(1.8rem, 5vw, 3.5rem);
