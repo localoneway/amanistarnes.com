@@ -1227,6 +1227,12 @@ a:hover {
   }
 }
 
+@media (min-height: 951px) {
+  .splash-nav-arc {
+    --arc-top: 58%;
+  }
+}
+
 @media (max-height: 700px) {
   .splash {
     padding-top: 1.5rem;
