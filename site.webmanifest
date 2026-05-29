@@ -1,0 +1,17 @@
+{
+  "name": "Amani Starnes",
+  "short_name": "Amani Starnes",
+  "description": "Amani Starnes is a performer, writer, dramaturg, researcher, and assistant professor of theatre.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ede9df",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/assets/favicons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
