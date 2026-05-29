@@ -329,17 +329,22 @@ a:hover {
 /* ─── ARC NAV ──────────────────────────────────────────────── */
 .splash-nav-arc {
   position: absolute;
-  top: 60%;
   left: 50%;
   width: 0;
   height: 0;
+  /* Main inspector controls for the splash nav. */
+  --arc-top: 60%;
   --arc-r: clamp(240px, 26vw, 400px);
+  --arc-2-lift: 0rem;
+  --arc-safe-gap: 2.25rem;
+  top: max(var(--arc-top), calc(var(--arc-r) + var(--arc-safe-gap) - var(--arc-2-lift)));
   --arc-start: 210deg;
   --arc-step: 60deg;
 }
 
 .arc-item {
   position: absolute;
+  --arc-y-offset: 0rem;
   font-family: "adobe-garamond-pro", serif;
   font-weight: 400;
   font-style: italic;
@@ -349,7 +354,7 @@ a:hover {
   white-space: nowrap;
   transition: color 0.15s;
   transform:
-    rotate(calc(var(--arc-start) + var(--n) * var(--arc-step))) translateX(var(--arc-r)) rotate(calc(-1 * (var(--arc-start) + var(--n) * var(--arc-step)))) translate(-50%, -50%);
+    rotate(calc(var(--arc-start) + var(--n) * var(--arc-step))) translateX(var(--arc-r)) rotate(calc(-1 * (var(--arc-start) + var(--n) * var(--arc-step)))) translate(-50%, calc(-50% + var(--arc-y-offset)));
 }
 
 .arc-item {
@@ -399,6 +404,7 @@ a:hover {
 
 .arc-2 {
   --n: 1;
+  --arc-y-offset: var(--arc-2-lift);
   z-index: 999;
 }
 
@@ -1023,7 +1029,7 @@ a:hover {
   }
 
   .splash-nav-arc {
-    top: 25%;
+    --arc-top: 25%;
   }
 
   .section {
@@ -1079,7 +1085,7 @@ a:hover {
   }
 
   .splash-nav-arc {
-    top: 25%;
+    --arc-top: 25%;
     /* --arc-r: clamp(140px, 22vw, 240px); */
   }
 
@@ -1213,10 +1219,23 @@ a:hover {
   }
 }
 
+@media (min-width: 821px) and (max-height: 950px) {
+  .splash-nav-arc {
+    --arc-r: clamp(220px, 25vw, 340px);
+    --arc-top: 68%;
+    --arc-2-lift: -2rem;
+  }
+}
+
 @media (max-height: 700px) {
   .splash {
     padding-top: 1.5rem;
     gap: 1rem;
+  }
+
+  .splash-nav-arc {
+    --arc-top: 72%;
+    --arc-safe-gap: 1.5rem;
   }
 
 
