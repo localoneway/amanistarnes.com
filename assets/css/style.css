@@ -930,9 +930,38 @@ a:hover {
   margin-top: 1em;
 }
 
+.about-documents {
+  text-align: center;
+}
+
+.about-documents .section-title {
+  text-align: center;
+}
+
+.document-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  max-width: none;
+  padding-left: 0;
+}
+
+.document-links .btn+.btn {
+  margin-left: 0;
+}
+
 .placeholder-note {
   color: var(--muted);
   font-style: italic;
+  font-size: 1.5rem;
+}
+
+.placeholder-p {
+  color: var(--muted);
+  font-style: normal;
+  font-family: "adobe-garamond-pro", serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 1.5rem;
 }
 
