@@ -1219,19 +1219,19 @@ a:hover {
   }
 }
 
-@media (min-width: 821px) and (max-height: 950px) {
+/* @media (min-width: 821px) and (max-height: 950px) {
   .splash-nav-arc {
     --arc-r: clamp(220px, 25vw, 340px);
     --arc-top: 68%;
     --arc-2-lift: -2rem;
   }
-}
-
+} */
+/* 
 @media (min-height: 951px) {
   .splash-nav-arc {
     --arc-top: 58%;
   }
-}
+} */
 
 @media (max-height: 700px) {
   .splash {
