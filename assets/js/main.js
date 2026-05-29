@@ -1,3 +1,18 @@
+// Page load fade
+(function () {
+  function showPage() {
+    document.body.classList.add('is-loaded');
+  }
+
+  if (document.readyState === 'complete') {
+    requestAnimationFrame(showPage);
+  } else {
+    window.addEventListener('load', function () {
+      requestAnimationFrame(showPage);
+    }, { once: true });
+  }
+})();
+
 // Staggered splash intro
 (function () {
   const els = [
