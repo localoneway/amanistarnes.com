@@ -1,3 +1,48 @@
+// Lightweight client-side password gate.
+(function () {
+  const password = 'WelcomeIn123!';
+  const storageKey = 'amani-site-unlocked';
+
+  if (sessionStorage.getItem(storageKey) === 'true') return;
+
+  document.body.classList.add('auth-locked');
+
+  const gate = document.createElement('div');
+  gate.className = 'password-gate';
+  gate.setAttribute('role', 'dialog');
+  gate.setAttribute('aria-modal', 'true');
+  gate.innerHTML = `
+    <form class="password-gate__form">
+      <h1 class="password-gate__title">Amani Starnes</h1>
+      <input class="password-gate__input" type="password" name="site-password" aria-label="Password" autocomplete="current-password" required>
+      <button class="btn btn-zap password-gate__submit" type="submit">Enter</button>
+      <p class="password-gate__error" aria-live="polite"></p>
+    </form>
+  `;
+  document.body.appendChild(gate);
+
+  const form = gate.querySelector('form');
+  const input = gate.querySelector('input');
+  const error = gate.querySelector('.password-gate__error');
+
+  requestAnimationFrame(() => input.focus());
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (input.value === password) {
+      sessionStorage.setItem(storageKey, 'true');
+      document.body.classList.remove('auth-locked');
+      gate.remove();
+      return;
+    }
+
+    input.value = '';
+    error.textContent = 'Try again.';
+    input.focus();
+  });
+})();
+
 // Page load fade
 (function () {
   function showPage() {
