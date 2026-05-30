@@ -1276,7 +1276,9 @@ a:hover {
   }
 
   .splash-nav-arc {
+    --arc-top: 17%;
     --arc-r: 130px;
+    --arc-safe-gap: 1.5rem;
   }
 
   .site-header {
