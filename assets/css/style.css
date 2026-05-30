@@ -442,6 +442,23 @@ a:hover {
   color: var(--hot);
 }
 
+.splash-contact {
+  position: fixed;
+  top: 1.4rem;
+  right: 1.6rem;
+  z-index: 10;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  transition: color 0.15s ease;
+}
+
+.splash-contact:hover {
+  color: var(--hot);
+}
+
 /* ─── SITE HEADER ─────────────────────────────────────────── */
 
 .site-header {
@@ -968,6 +985,78 @@ a:hover {
   margin-left: 0;
 }
 
+/* ─── CONTACT ─────────────────────────────────────────────── */
+
+.contact-section {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.contact-form {
+  padding: 3rem 0 5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.form-field {
+  display: block;
+  margin-bottom: 1.4rem;
+}
+
+.form-field span {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--hot);
+  margin-bottom: 0.45rem;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  border: 1px dotted var(--mid);
+  background: rgba(237, 233, 223, 0.72);
+  color: var(--void);
+  font: inherit;
+  font-style: normal;
+  padding: 0.85rem 0.95rem;
+  outline: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 13rem;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--hot);
+  background: var(--cream);
+}
+
+.contact-submit {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: "adobe-garamond-pro", serif;
+}
+
+.netlify-honeypot {
+  display: none;
+}
+
+.contact-thanks {
+  text-align: center;
+  max-width: none;
+  padding-left: 0;
+}
+
 .placeholder-note {
   color: var(--muted);
   font-style: italic;
@@ -1159,6 +1248,11 @@ a:hover {
     text-align: center;
   }
 
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
   .side-poster {
     float: none;
     margin: 0 0 1.5rem;
@@ -1200,12 +1294,19 @@ a:hover {
   }
 
   .header-nav {
-    gap: 0.65rem;
+    gap: 0.55rem;
   }
 
   .header-nav a {
-    font-size: 0.55rem;
+    font-size: 0.5rem;
     letter-spacing: 0.08em;
+  }
+
+  .splash-contact {
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
   }
 
   /* .arc-item {

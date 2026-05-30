@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Amani Starnes</title>
+  <meta name="description"
+    content="Contact Amani Starnes for performance, dramaturgy, research, teaching, and collaboration inquiries.">
+  <meta name="author" content="Amani Starnes">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="canonical" href="https://amanistarnes.com/contact.html">
+  <link rel="icon" href="/assets/favicons/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:title" content="Contact — Amani Starnes">
+  <meta property="og:description"
+    content="Contact Amani Starnes for performance, dramaturgy, research, teaching, and collaboration inquiries.">
+  <meta property="og:image" content="https://amanistarnes.com/assets/images/social_image.jpg">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="960">
+  <meta property="og:image:alt" content="Amani Starnes homepage portrait on a blue background">
+  <meta property="og:url" content="https://amanistarnes.com/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Amani Starnes">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact — Amani Starnes">
+  <meta name="twitter:description"
+    content="Contact Amani Starnes for performance, dramaturgy, research, teaching, and collaboration inquiries.">
+  <meta name="twitter:image" content="https://amanistarnes.com/assets/images/social_image.jpg">
+  <meta name="twitter:image:alt" content="Amani Starnes homepage portrait on a blue background">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">AMANI STARNES</a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="performance.html">Performance</a>
+      <a href="dramaturgy.html">Dramaturgy</a>
+      <a href="research.html">Research</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </header>
+
+  <div class="page-header">
+    <span class="page-eyebrow">Contact</span>
+    <h1 class="page-title">CONTACT</h1>
+    <p class="page-intro">
+      <span class="placeholder-note">For performance, dramaturgy, research, teaching, and collaboration inquiries.</span>
+    </p>
+  </div>
+
+  <main class="page-body">
+    <section class="section contact-section" style="border-top:none; margin-top:0;">
+      <form class="contact-form" name="contact" method="POST" action="/contact-success.html" data-netlify="true"
+        data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="netlify-honeypot">
+          <label>Do not fill this out if you are human: <input name="bot-field"></label>
+        </p>
+
+        <div class="form-grid">
+          <label class="form-field">
+            <span>Name</span>
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+
+          <label class="form-field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+        </div>
+
+        <label class="form-field">
+          <span>Subject</span>
+          <input type="text" name="subject" autocomplete="off">
+        </label>
+
+        <label class="form-field">
+          <span>Message</span>
+          <textarea name="message" rows="8" required></textarea>
+        </label>
+
+        <button class="btn btn-zap contact-submit" type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© Amani Starnes</span>
+    <a href="index.html">↑ Home</a>
+  </footer>
+  <div class="paperOverlay"></div>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
